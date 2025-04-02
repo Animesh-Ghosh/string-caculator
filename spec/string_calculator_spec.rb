@@ -1,21 +1,16 @@
 RSpec.describe '#add' do
-  it 'returns 0 for an empty string' do
+  it 'adds upto 2 numbers separated by commas' do
     expect(add('')).to eq 0
-  end
-
-  it 'returns 1 for "1"' do
     expect(add('1')).to eq 1
-  end
-
-  it 'returns 3 for "1,2"' do
     expect(add('1,2')).to eq 3
   end
 
-  it 'returns 8 for "1,2,5"' do
+  it 'adds more than 2 numbers separated by commas' do
     expect(add('1,2,5')).to eq 8
+    expect(add('10,2,5')).to eq 17
   end
 
-  it 'returns 17 for "10,2,5"' do
-    expect(add('10,2,5')).to eq 17
+  it 'handle new lines between numbers instead of commas' do
+    expect(add("1\n2,3")).to eq 6
   end
 end

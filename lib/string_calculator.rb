@@ -1,6 +1,6 @@
 def add(numbers)
   numbers
-    .split(',')
+    .split(%r{[,\n]})
     .map(&:to_i)
     .reduce 0, :+
 end
