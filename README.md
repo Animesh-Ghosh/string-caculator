@@ -4,8 +4,8 @@
 
 - Ruby 3+
 
-## Running the kata
+## Running the tests
 
 ```bash
-ruby string-calculator.rb
+bundle exec rspec
 ```
