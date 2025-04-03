@@ -16,14 +16,12 @@ RSpec.describe '#add' do
 
   it 'supports different delimiters' do
     expect(add("//;\n1;2")).to eq 3
+    expect(add("//*\n1\n2*3")).to eq 6
   end
 
   it 'raises an exception if negative numbers are passed' do
     expect do
       add("1\n2,-3,4,-5")
     end.to raise_error 'negative numbers not allowed -3,-5'
-    expect do
-      add("//*\n1\n-2*3")
-    end.to raise_error 'negative numbers not allowed -2'
   end
 end

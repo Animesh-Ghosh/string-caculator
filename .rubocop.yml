@@ -1,5 +1,7 @@
 AllCops:
   TargetRubyVersion: 3.0
+  Exclude:
+    - 'spec/spec_helper.rb'
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
