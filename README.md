@@ -1,17 +1,21 @@
 # string-calculator
 
-## Dependencies
+The String Calculator TDD Kata by Roy Osherove.
 
-- Ruby 3+
-
-## Installing dependencies
+## Setup
 
 ```bash
-bin/setup
+bundle
 ```
 
 ## Running the tests
 
 ```bash
 bundle exec rspec
+```
+
+## Linting
+
+```bash
+bundle exec rubocop -a
 ```

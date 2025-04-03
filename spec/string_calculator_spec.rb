@@ -1,3 +1,5 @@
+require 'string_calculator'
+
 RSpec.describe '#add' do
   it 'adds upto 2 numbers separated by commas' do
     expect(add('')).to eq 0
