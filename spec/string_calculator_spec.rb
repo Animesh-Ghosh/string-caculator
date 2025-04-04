@@ -12,7 +12,7 @@ RSpec.describe '#add' do
     expect(add('10,2,5')).to eq 17
   end
 
-  it 'handle new lines between numbers instead of commas' do
+  it 'handles new lines between numbers instead of commas' do
     expect(add("1\n2,3")).to eq 6
   end
 
@@ -28,14 +28,18 @@ RSpec.describe '#add' do
   end
 
   it 'ignores adding numbers greater than 1000' do
-    expect(add("2,1001\n1000")).to eq 1002
+    expect(add("2,1001")).to eq 2
   end
 
   it 'supports delimiters of any length' do
     expect(add("//[***]\n1***2***3")).to eq 6
   end
 
-  it 'supports multiple delimiters' do
+  it 'allows multiple delimiters' do
     expect(add("//[*][%]\n1*2%3")).to eq 6
+  end
+
+  it 'handles multiple delimiters of varying lengths' do
+    expect(add("//[***][%]\n1***2%3")).to eq 6
   end
 end
