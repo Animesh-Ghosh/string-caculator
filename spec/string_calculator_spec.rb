@@ -30,4 +30,8 @@ RSpec.describe '#add' do
   it 'ignores adding numbers greater than 1000' do
     expect(add("2,1001\n1000")).to eq 1002
   end
+
+  it 'supports delimiters of any length' do
+    expect(add("//[***]\n1***2***3")).to eq 6
+  end
 end
