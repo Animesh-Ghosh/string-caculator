@@ -1,22 +1,22 @@
 require 'strscan'
 
 def add(numbers)
-  if numbers.match(%r{\A//\W+\n})
-    s = StringScanner.new numbers
+  if (match = numbers.match(%r{\A//(?<delimiters>\W+)\n}))
+    delimiters = match[:delimiters]
     # either delimiter is within '[]' or it is without
-    regexp = %r{
-    //
-    (
-     \[
-       (?<delimiter>\W+)
-     \]
-     |
-     (?<delimiter>\W)
-    )
-    \n
-    }x
-    s.scan_until regexp
-    delimiter = s[:delimiter]
+    if delimiters.match?(/\[\W+\]/)
+      s = StringScanner.new delimiters
+      delimiters = ''
+      until s.eos?
+        s.scan(/\[/)
+        s.scan(/(?<delimiter>[^\]]+)/)
+        delimiters << s[:delimiter]
+        s.scan(/\]/)
+      end
+      delimiter = delimiters
+    else
+      delimiter = delimiters
+    end
   else
     delimiter = ','
   end
