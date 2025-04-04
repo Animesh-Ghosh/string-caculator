@@ -28,7 +28,7 @@ RSpec.describe '#add' do
   end
 
   it 'ignores adding numbers greater than 1000' do
-    expect(add("2,1001")).to eq 2
+    expect(add('2,1001')).to eq 2
   end
 
   it 'supports delimiters of any length' do
